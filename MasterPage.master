@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head id="Head1" runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="SignUp.css">
+    <link rel="stylesheet" type="text/css" href="masterpage.css">
+    <asp:ContentPlaceHolder id="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+        <script>
+            function login() {
+                var login = document.getElementById('login');
+                var login_modal = document.getElementById('Login_Form');
+
+                login_modal.style.display = "block";
+                login.style.color = "rgb(0, 191, 255)";
+            }
+    </script>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <div class="header">
+		<img id="icon" src="Images/logo.png">
+			<form>
+				<input type="text" id="search" placeholder="Search for people, place, locations">
+				<input type="submit" id="search_button" value="">			
+			</form>
+			<span id= "login" onclick="login();">Login</span>
+		</div>
+    <div>
+        <asp:ContentPlaceHolder id="Body" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <div>           
+    <div id="Sign_Up_Form" style="display: none">
+        <form class="modal-content animate" method="post" action="">           
+            <div class="input">
+                    <div>
+                        <div>Name</div>
+                        <asp:TextBox CssClass="signUp_input" ID="First_Name" runat="server" placeholder="First Name" style="height: 20px; padding-left: 1px;"></asp:TextBox>
+                        <asp:TextBox CssClass="signUp_input" ID="Last_Name" runat="server" placeholder="Last Name" style="height: 20px; padding-left: 1px;"></asp:TextBox>
+                    </div>
+                    <div>
+                        <div>Email</div>
+                        <asp:TextBox CssClass="signUp_input" ID="Regi_Email" runat="server" placeholder="Your email here"  style="height: 20px;  width: 70%; padding-left: 1px;"></asp:TextBox>
+                    </div>
+                    <div>
+                        <div>Password</div>
+                        <asp:TextBox CssClass="signUp_input" ID="Regi_Password" type="password" runat="server" placeholder="**********" style="height: 20px;  width: 70%; padding-left: 1px;"></asp:TextBox>
+                    </div>
+                    <div>
+                        <div>Confirm Password</div>
+                        <asp:TextBox CssClass="signUp_input" ID="Confirm_Regi_Password" type="password" runat="server" placeholder="**********" style="height: 20px;  width: 70%; padding-left: 1px;"></asp:TextBox>
+                    </div>
+                    <div>
+                        <div>Age</div>
+                        <asp:TextBox CssClass="signUp_input" ID="Age" type="number" runat="server" placeholder="e.g. 21" style="height: 20px;  width: 70%; padding-left: 1px;"></asp:TextBox>
+                    </div>
+                    <div>
+                        <div>Gender:</div>
+                        <asp:RadioButtonList CssClass="radio" ID="Gender" runat="server">
+                            <asp:ListItem Value="1">Male</asp:ListItem>
+                            <asp:ListItem Value="2">Female</asp:ListItem>
+                            <asp:ListItem Value="3">Other</asp:ListItem>
+                        </asp:RadioButtonList>
+                        </br>
+                    </div>
+               </div>
+            <asp:Button ID="Register_Button" runat="server" value="Join" OnClick="userRegister" CssClass="button_join" Text="Join" />
+        </form>
+    </div>
+    <div id="Login_Form" style="display: none">
+        <form class="login-modal-content animate">   
+            <asp:Login ID = "Login"></asp:Login>        
+                <div class="input">
+                    <div>
+                        <asp:TextBox ID="Email" runat="server" style="margin:8px 2px 5px 2px;" placeholder="Email"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="Password" runat="server" style="margin:5px 2px 8px 2px;" type="password" placeholder="**********"></asp:TextBox>
+                    </div>
+               </div>
+             <f style="padding-left: 4px">Not yet registered? <f style="color:rgb(176,224,230); cursor:pointer" onclick="document.getElementById('Sign_Up_Form').style.display='block';document.getElementById('Login_Form').style.display='none';">Sign Up</f></f>
+            <asp:Button ID="Login_Button" OnClick="userLogin" style="display:none"/>
+         
+        </form>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('Sign_Up_Form');
+        var login_modal = document.getElementById('Login_Form');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.getElementById('login').style.color = "rgb(176,224,230)";
+            }
+            if (event.target == login_modal) {
+                login_modal.style.display = "none";
+                document.getElementById('login').style.color = "rgb(176,224,230)";
+            }
+        }
+
+
+            </script>
+        </div>
+    </form>
+</body>
+</html>

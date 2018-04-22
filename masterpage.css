@@ -1,0 +1,63 @@
+﻿.header {
+			height: 56px;
+			width: 100%;
+			overflow:hidden;
+	background-color: #1a1a1a;
+}
+
+#icon {
+	height: 56px;
+	width: 80px;
+	margin-left:84px;
+    margin-right:10px;
+	float: left;
+}
+
+#search{
+	height: 34px;
+	width:396px;
+	margin-left: 18px;
+    float:left;
+	margin-top: 6px;
+	position: relative;
+	border-radius: 4px;
+	font-size:20px;
+	font-family: ariel;
+	background: #EEEEEE;
+	padding-left: 10px;
+    top: 0px;
+
+}
+
+#search_button{
+	display: block;
+    background: url(Images/search_icon.png);
+    background-size: cover;
+    height: 28px;
+    width: 30px;
+    left: -36px;
+    top:11px;
+    position:relative;
+    border: none;
+    float: left;
+}
+
+#login{
+	color: rgb(176,224,230);
+	float: right;
+	margin-top: 18px;
+    margin-right:60px;
+	font-size: 18px;
+	left: -60px;
+}
+
+#login:hover {
+    color: rgb(0,191,255);
+    cursor: pointer;
+}
+
+
+
+#login:active {
+     color:rgb(0,191,255);
+}
